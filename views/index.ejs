@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./styles.css"/>
+    <title>ScentSational project</title>
+</head>
+<body>
+    <div class="black black-part">
+        <div class="logo logo-space">
+            <p>...logo goes here...</p>
+        </div>
+        <div class="home home-space" id="home">
+            <i class="bi bi-house-fill" style="color :aliceblue;"></i>
+            <br/>
+            <p>Home</p>
+        </div>
+    </div>
+<div class="div heading-div">
+    <h1 class="heading">ScentSational</h1>
+    <div class="content-wrapper">
+    <% stocks.forEach((stock, i) => { %>
+    <div class="card" style="width: 14rem;"> 
+        <img src="<%= stock.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text"><%= stock.note %></p>
+            <div class="dirty">
+                <form action="/edit-text" method="POST">
+                    <input type="hidden" name="stockIndex" value="<%= i %>">
+                    <button type="submit" class="btn btn-primary edit">Edit</button>
+                </form>
+                <form action="/delete" method = "POST">
+                    <input type="hidden" name="delete" value="<%= i %>">
+                    <button type="submit" class="btn btn-danger delete">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div> 
+<% }) %>
+
+    </div>
+    
+    <form action="/add" method="get" class="add add-bg" id="add">
+        <button type="submit" class="add-btn-reset add-icon">
+            <i class="bi bi-plus" style="font-size: 40px;"></i>
+        </button>
+    </form>
+</div>
+ </div>
+    <script src="./script.js"></script>
+</body>
+</html>

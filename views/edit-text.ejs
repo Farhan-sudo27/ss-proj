@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Page</title>
+    <link rel="stylesheet" href="./edit-text.css"/>
+</head>
+<body>
+    <h1>Stock Successfully added</h1>
+    <form class="edit-note-form" method="POST" action="/update-text">
+        <input type="hidden" name="currentIndex" value="<%= currentIndex %>">
+        <label for="edit-note-input" id="edit-note-label">Note</label>
+        <textarea class = "edit-note-input" id="edit-note-input" type="text" name="note" required autofocus autocomplete="off"><%=currentNote%></textarea>
+        <button type="submit" class="btn btn-secondary text-submit">Upload Text</button>
+    </form>
+</body>
+</html>
